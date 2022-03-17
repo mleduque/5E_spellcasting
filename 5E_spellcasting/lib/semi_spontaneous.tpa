@@ -5891,14 +5891,23 @@ ACTION_PHP_EACH mage_slot_items AS ind => slot_item BEGIN
  	  READ_LONG 0x54 "valid"
 	  PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
 		READ_STRREF 0x54 "description"
-		PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~extra~) = 0 BEGIN // more validation
-		  INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
-			REPLACE_TEXTUALLY ~2 extra~ ~1 extra~
-			REPLACE_TEXTUALLY ~3 extra~ ~1 extra~
-			REPLACE_TEXTUALLY ~two extra~ ~one extra~
-			REPLACE_TEXTUALLY ~three extra~ ~one extra~
-		  END
-		  SAY_EVALUATED 0x54 ~%new_desc%~
+		SPRINT extra_regex @10000
+		PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%extra_regex%%~) = 0 BEGIN // more validation
+			SPRINT num_2_extra @10001
+			SPRINT num_3_extra @10002
+			SPRINT two_extra @10003
+			SPRINT three_extra @10004
+			SPRINT num_2_replacement @10011
+			SPRINT num_3_replacement @10012
+			SPRINT two_replacement @10013
+			SPRINT three_replacement @10014
+			INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+				REPLACE_TEXTUALLY ~%num_2_extra%~ ~%num_2_replacement%~
+				REPLACE_TEXTUALLY ~%num_3_extra%~ ~%num_2_replacement%~
+				REPLACE_TEXTUALLY ~%two_extra%~ ~%two_replacement%~
+				REPLACE_TEXTUALLY ~%three_extra%~ ~%three_replacement%~
+			END
+			SAY_EVALUATED 0x54 ~%new_desc%~
 		END
 	  END
 	IF_EXISTS BUT_ONLY
