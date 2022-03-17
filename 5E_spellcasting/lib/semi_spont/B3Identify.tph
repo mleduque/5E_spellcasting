@@ -204,7 +204,7 @@ B3Identify_UnidentifiedCount = -1
 ---------------
 
 function B3Identify_RemainingUsesText()
-	return "${remaining_uses_label}"..B3Identify_UseCount
+	return "{{remaining_uses_label}}"..B3Identify_UseCount
 end
 
 function B3Identify_IdentifySlot(slotinfo)
@@ -358,9 +358,9 @@ menu
 
 		LAF B3_CONTINGENCY_REDIRECT_INSTALL END
 
-		OUTER_SPRINT remaining_uses_label = @10050
+		OUTER_SPRINT remaining_uses_label @10050
 		COPY ~.../B3Identify-inlined/copy/M_B3IDEN.lua~ ~override~
-			REPLACE_TEXTUALLY ~${remaining_uses_label}~ ~%remaining_uses_label%~
+			REPLACE_TEXTUALLY ~{{remaining_uses_label}}~ ~%remaining_uses_label%~
 		BUT_ONLY
 
 		COPY_EXISTING ~UI.MENU~ ~override~
