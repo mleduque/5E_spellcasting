@@ -93,3 +93,6 @@ Weight: 0~
 @10012 = ~1 extra~ // for 3
 @10013 = ~one extra~ // for two
 @10014 = ~one extra~ // for three
+
+// identify, remaining uses label
+@10050 = ~Remaining Identify Uses: ~
