@@ -81,3 +81,17 @@ Capacités d'équipement :
 
 Poids : 0~
 //
+
+// MAKE ARCANE +SPELL SLOT ITEMS WORK - ring of acuity ring40.itm
+// regex used to detect description needing replacement
+@10000 = ~supplémentaires~
+// regexes for text to be replaced
+@10001 = ~2 sorts supplémentaires~
+@10002 = ~deux sorts profanes~
+@10003 = ~zzzzzzzzzzzzzzzzzzzzzzzzz123~
+@10004 = ~zzzzzzzzzzzzzzzzzzzzzzzzz123~
+// replacements
+@10011 = ~1 sort supplémentaire~ 
+@10012 = ~un sort profane~
+@10013 = ~zzzzzzzzzzzzzzzzzzzzzzzzz123~
+@10014 = ~zzzzzzzzzzzzzzzzzzzzzzzzz123~
