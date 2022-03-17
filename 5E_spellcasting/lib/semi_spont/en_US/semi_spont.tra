@@ -79,3 +79,17 @@ Equipped abilities:
 
 Weight: 0~
 //
+
+// MAKE ARCANE +SPELL SLOT ITEMS WORK - ring of acuity ring40.itm
+// regex used to detect description needing replacement
+@10000 = ~extra~
+// regexes for text to be replaced
+@10001 = ~2 extra~
+@10002 = ~3 extra~
+@10003 = ~two extra~
+@10004 = ~three extra~
+// replacements
+@10011 = ~1 extra~ // for 2
+@10012 = ~1 extra~ // for 3
+@10013 = ~one extra~ // for two
+@10014 = ~one extra~ // for three
